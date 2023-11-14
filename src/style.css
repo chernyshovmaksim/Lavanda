@@ -1,0 +1,23 @@
+@import "./../node_modules/swiper/swiper.css";
+/* @import "./../node_modules/swiper/modules/navigation.css"; */
+/* @import "./../node_modules/swiper/modules/navigation.css"; */
+
+@import "./../node_modules/mmenu-light/dist/mmenu-light.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+	@apply px-2;
+}
+.swiper-pagination-bullet {
+	@apply block w-3 h-3 bg-gray-600 rounded-full;
+}
+.swiper-pagination-bullet-active {
+	@apply bg-lavender w-4 h-4;
+}
+
+.mm {
+	@apply bg-lavender;
+}

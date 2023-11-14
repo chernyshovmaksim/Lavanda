@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lavanda</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body x-data class="antialiased">
+		<div id="page">
+			<nav id="menu">
+				<ul>
+					<li><a href="/">Главная</a></li>
+					<li>
+						<span>Каталог</span>
+						<ul>
+							<li>
+								<span>Букеты цветов</span>
+								<ul>
+									<li><a href="/">Розы</a></li>
+									<li><a href="/">Розы премиум</a></li>
+									<li><a href="/">Хризантемы</a></li>
+								</ul>
+							</li>
+							<li>
+								<span>Композиции</span>
+								<ul>
+									<li><a href="/">Авторские букеты</a></li>
+									<li><a href="/">Свадебные букеты</a></li>
+									<li><a href="/">Цветы в коробочках</a></li>
+									<li><a href="/">Цветы в корзинах</a></li>
+									<li><a href="/">Детские букеты</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><a href="/">Корпоративным клиентам</a></li>
+					<li><a href="/">Доставка</a></li>
+					<li><a href="/">Контакты</a></li>
+					<li><a href="/">О нас</a></li>
+				</ul>
+			</nav>
+
+			<header>
+				<section class="bg-lavender py-1 text-xs">
+					<div class="container text-white flex">
+						<span class="flex-1">ул.Победы 75Е</span>
+						<span class=""><a href="/">+7 (922) 539-12-69</a></span>
+					</div>
+				</section>
+
+				<section class="py-2">
+					<div class="container flex items-center">
+						<div class="flex-1">
+							<a href="#menu">
+								<img src="assets/icons/menu.svg" alt="" />
+							</a>
+						</div>
+						<div
+							class="flex-1 text-center text-2xl font-serif text-slate-700 font-black"
+						>
+							<a href="/" class="flex flex-col items-center">
+								<span>Lavanda</span>
+								<span class="text-[8px] font-sans font-thin uppercase -mt-4"
+									>Студия флористики</span
+								>
+							</a>
+						</div>
+						<div class="flex-1">
+							<img src="assets/icons/search.svg" class="ml-auto" alt="" />
+						</div>
+					</div>
+				</section>
+			</header>
+
+			<section>
+				<div class="container">
+					<a href="/">
+						<img src="assets/images/poster-1.png" class="w-full" alt="" />
+					</a>
+				</div>
+			</section>
+
+			<section id="title" class="py-8">
+				<div class="container flex items-center">
+					<span class="h-[1px] w-full bg-lavender flex-1 mr-3"></span>
+					<h3 class="uppercase font-serif text-base">Акции</h3>
+					<span class="h-[1px] w-full bg-lavender flex-1 ml-3"></span>
+				</div>
+			</section>
+		</div>
+
+		<script type="module" src="app.js"></script>
+	</body>
+</html>
