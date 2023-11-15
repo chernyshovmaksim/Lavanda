@@ -14,6 +14,7 @@ const swiper = new Swiper(".swiper", {
 	modules: [Pagination],
 	// direction: "vertical",
 	loop: true,
+	autoplay: true,
 
 	// If we need pagination
 	pagination: {
@@ -21,10 +22,7 @@ const swiper = new Swiper(".swiper", {
 	},
 });
 
-const menu = new MmenuLight(
-	document.querySelector("#menu"),
-	"(max-width: 600px)"
-);
+const menu = new MmenuLight(document.querySelector("#menu"));
 const navigator = menu.navigation({
 	title: "ЛАВАНДА",
 	// options

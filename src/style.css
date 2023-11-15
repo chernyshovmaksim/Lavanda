@@ -9,7 +9,7 @@
 @tailwind utilities;
 
 .container {
-	@apply px-2;
+	@apply px-2 mx-auto;
 }
 .swiper-pagination-bullet {
 	@apply block w-3 h-3 bg-gray-600 rounded-full;

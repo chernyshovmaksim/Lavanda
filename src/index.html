@@ -6,8 +6,13 @@
 		<title>Lavanda</title>
 		<link rel="stylesheet" href="style.css" />
 	</head>
-	<body x-data class="antialiased">
-		<div id="page">
+	<body
+		x-data="{
+		cartIsVisible: false		
+	}"
+		class="antialiased"
+	>
+		<div id="page" class="flex flex-col">
 			<nav id="menu">
 				<ul>
 					<li><a href="/">Главная</a></li>
@@ -41,6 +46,18 @@
 				</ul>
 			</nav>
 
+			<div id="cart">
+				<div
+					class="fixed top-0 w-full h-screen bg-black z-40 transition-opacity"
+					:class="cartIsVisible ? 'opacity-30 right-0' : 'opacity-0 -right-full'"
+					@click="cartIsVisible = false"
+				></div>
+				<div
+					class="fixed z-50 top-0 h-screen w-4/5 bg-white transition-all duration-300"
+					:class="cartIsVisible ? 'right-0' : '-right-full'"
+				></div>
+			</div>
+
 			<header>
 				<section class="bg-lavender py-1 text-xs">
 					<div class="container text-white flex">
@@ -49,8 +66,8 @@
 					</div>
 				</section>
 
-				<section class="py-2">
-					<div class="container flex items-center">
+				<section class="py-2 mt-8">
+					<div class="container flex items-start">
 						<div class="flex-1">
 							<a href="#menu">
 								<img src="assets/icons/menu.svg" alt="" />
@@ -66,8 +83,16 @@
 								>
 							</a>
 						</div>
-						<div class="flex-1">
+						<div class="flex gap-4 items-center flex-1">
 							<img src="assets/icons/search.svg" class="ml-auto" alt="" />
+							<div class="relative" x-on:click="cartIsVisible = true">
+								<span
+									class="bg-lavender rounded-full h-4 w-4 flex items-center justify-center text-white font-bold absolute text-[8px] -top-3 right-0"
+								>
+									0
+								</span>
+								<img src="assets/icons/shopping-cart.svg" class="" alt="" />
+							</div>
 						</div>
 					</div>
 				</section>
@@ -81,13 +106,153 @@
 				</div>
 			</section>
 
-			<section id="title" class="py-8">
+			<section id="title" class="py-8 pt-16">
 				<div class="container flex items-center">
 					<span class="h-[1px] w-full bg-lavender flex-1 mr-3"></span>
 					<h3 class="uppercase font-serif text-base">Акции</h3>
 					<span class="h-[1px] w-full bg-lavender flex-1 ml-3"></span>
 				</div>
 			</section>
+
+			<section id="catalog">
+				<div
+					class="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 gap-y-4"
+				>
+					<div class="flex flex-col">
+						<a href="/" class="w-full h-36 md:h-52">
+							<img
+								class="w-full h-full object-cover"
+								src="assets/images/catalog/1.jpeg"
+								alt=""
+							/>
+						</a>
+						<h2 class="text-xs mt-2">Монобукет из 51 розы Кения 40см</h2>
+						<span class="font-bold mt-auto mt-2">1950 ₽</span>
+						<span class="text-[10px] text-green-700">В наличии</span>
+					</div>
+
+					<div class="flex flex-col">
+						<a href="/" class="w-full h-36 md:h-52">
+							<img
+								class="w-full h-full object-cover"
+								src="assets/images/catalog/2.jpg"
+								alt=""
+							/>
+						</a>
+						<h2 class="text-xs mt-2">101 роза "Red &amp; White" - 60см</h2>
+						<span class="font-bold mt-auto mt-2">2550 ₽</span>
+						<span class="text-[10px] text-orange-700">Под заказ</span>
+					</div>
+
+					<div class="flex flex-col gap-2">
+						<a href="/" class="w-full h-36 md:h-52">
+							<img
+								class="w-full h-full object-cover"
+								src="assets/images/catalog/3.jpg"
+								alt=""
+							/>
+						</a>
+						<h2 class="text-xs">Розы "Mondial" - 60см</h2>
+						<span class="font-bold mt-auto text-green-700">2550 ₽</span>
+					</div>
+
+					<div class="flex flex-col gap-2">
+						<a href="/" class="w-full h-36 md:h-52">
+							<img
+								class="w-full h-full object-cover"
+								src="assets/images/catalog/4.jpg"
+								alt=""
+							/>
+						</a>
+						<h2 class="text-xs">Корзина из 101 розы "MIX" (Кения)</h2>
+						<span class="font-bold mt-auto text-green-700">2550 ₽</span>
+					</div>
+				</div>
+			</section>
+
+			<section id="poster" class="pt-16">
+				<div class="container flex flex-col items-center uppercase font-thin">
+					<span
+						>Скидка
+						<span class="font-black text-white bg-lavender p-1 px-2 rounded-2xl"
+							>10%</span
+						>
+					</span>
+					<span
+						>при первом заказе от <span class="font-black">2000₽</span></span
+					>
+				</div>
+			</section>
+
+			<section id="title" class="py-8 pt-16">
+				<div class="container flex items-center">
+					<span class="h-[1px] w-full bg-lavender flex-1 mr-3"></span>
+					<h3 class="uppercase font-serif text-base">Новинки</h3>
+					<span class="h-[1px] w-full bg-lavender flex-1 ml-3"></span>
+				</div>
+			</section>
+
+			<section id="catalog">
+				<div
+					class="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 gap-y-4"
+				>
+					<div class="flex flex-col">
+						<a href="/" class="w-full h-36 md:h-52">
+							<img
+								class="w-full h-full object-cover"
+								src="assets/images/catalog/1.jpeg"
+								alt=""
+							/>
+						</a>
+						<h2 class="text-xs mt-2">Монобукет из 51 розы Кения 40см</h2>
+						<span class="font-bold mt-auto mt-2">1950 ₽</span>
+						<span class="text-[10px] text-green-700">В наличии</span>
+					</div>
+
+					<div class="flex flex-col">
+						<a href="/" class="w-full h-36 md:h-52">
+							<img
+								class="w-full h-full object-cover"
+								src="assets/images/catalog/2.jpg"
+								alt=""
+							/>
+						</a>
+						<h2 class="text-xs mt-2">101 роза "Red &amp; White" - 60см</h2>
+						<span class="font-bold mt-auto mt-2">2550 ₽</span>
+						<span class="text-[10px] text-orange-700">Под заказ</span>
+					</div>
+
+					<div class="flex flex-col gap-2">
+						<a href="/" class="w-full h-36 md:h-52">
+							<img
+								class="w-full h-full object-cover"
+								src="assets/images/catalog/3.jpg"
+								alt=""
+							/>
+						</a>
+						<h2 class="text-xs">Розы "Mondial" - 60см</h2>
+						<span class="font-bold mt-auto text-green-700">2550 ₽</span>
+					</div>
+
+					<div class="flex flex-col gap-2">
+						<a href="/" class="w-full h-36 md:h-52">
+							<img
+								class="w-full h-full object-cover"
+								src="assets/images/catalog/4.jpg"
+								alt=""
+							/>
+						</a>
+						<h2 class="text-xs">Корзина из 101 розы "MIX" (Кения)</h2>
+						<span class="font-bold mt-auto text-green-700">2550 ₽</span>
+					</div>
+				</div>
+			</section>
+
+			<footer class="mt-auto">
+				<section class="bg-lavender mt-8">
+					<div class="container"></div>
+				</section>
+			</footer>
 		</div>
 
 		<script type="module" src="app.js"></script>
