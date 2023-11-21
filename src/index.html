@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,9 +8,11 @@
 	</head>
 	<body
 		x-data="{
-		cartIsVisible: false		
+		cartIsVisible: false,
+		scrollY: true	
 	}"
 		class="antialiased"
+		x-bind:class=" scrollY ? '' : 'overflow-y-hidden'"
 	>
 		<div id="page" class="flex flex-col">
 			<nav id="menu">
@@ -46,16 +48,529 @@
 				</ul>
 			</nav>
 
-			<div id="cart">
+			<div id="cart" class="overflow-y-auto">
 				<div
 					class="fixed top-0 w-full h-screen bg-black z-40 transition-opacity"
 					:class="cartIsVisible ? 'opacity-30 right-0' : 'opacity-0 -right-full'"
-					@click="cartIsVisible = false"
+					@click="cartIsVisible = false; scrollY = true"
 				></div>
 				<div
-					class="fixed z-50 top-0 h-screen w-4/5 bg-white transition-all duration-300"
+					class="fixed z-50 top-0 h-screen w-4/5 md:w-1/2 lg:w-1/3 bg-white transition-all duration-300"
 					:class="cartIsVisible ? 'right-0' : '-right-full'"
-				></div>
+				>
+					<div class="container p-2">
+						<h3 class="uppercase font-thin text-center shadow">Корзина</h3>
+						<div class="overflow-y-scroll">
+							<div
+								class="my-2"
+								x-data="{
+								price: 1950,
+								count: 1,
+								increment() {
+									this.count++
+								},
+								decrement() {
+									if(this.count > 1){
+										this.count --
+									}
+								} 
+							}"
+							>
+								<div class="flex items-start">
+									<img
+										src="assets/images/catalog/1.jpeg"
+										class="w-16 h-16"
+										alt=""
+									/>
+									<div class="flex flex-1 flex-col px-2">
+										<a href="/" class="text-xs">
+											Монобукет из 51 розы Кения 40см
+										</a>
+										<div class="flex items-center">
+											<div class="flex flex-1 items-center gap-2 text-2xl">
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="decrement()"
+													>-</span
+												>
+												<span class="text-sm" x-text="count"></span>
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="increment()"
+													>+</span
+												>
+											</div>
+											<div class="p-2">
+												<span x-text="price * count"></span> ₽
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div
+								class="my-2"
+								x-data="{
+								price: 1950,
+								count: 1,
+								increment() {
+									this.count++
+								},
+								decrement() {
+									if(this.count > 1){
+										this.count --
+									}
+								} 
+							}"
+							>
+								<div class="flex items-start">
+									<img
+										src="assets/images/catalog/1.jpeg"
+										class="w-16 h-16"
+										alt=""
+									/>
+									<div class="flex flex-1 flex-col px-2">
+										<a href="/" class="text-xs">
+											Монобукет из 51 розы Кения 40см
+										</a>
+										<div class="flex items-center">
+											<div class="flex flex-1 items-center gap-2 text-2xl">
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="decrement()"
+													>-</span
+												>
+												<span class="text-sm" x-text="count"></span>
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="increment()"
+													>+</span
+												>
+											</div>
+											<div class="p-2">
+												<span x-text="price * count"></span> ₽
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="my-2"
+								x-data="{
+							price: 1950,
+							count: 1,
+							increment() {
+								this.count++
+							},
+							decrement() {
+								if(this.count > 1){
+									this.count --
+								}
+							} 
+						}"
+							>
+								<div class="flex items-start">
+									<img
+										src="assets/images/catalog/1.jpeg"
+										class="w-16 h-16"
+										alt=""
+									/>
+									<div class="flex flex-1 flex-col px-2">
+										<a href="/" class="text-xs">
+											Монобукет из 51 розы Кения 40см
+										</a>
+										<div class="flex items-center">
+											<div class="flex flex-1 items-center gap-2 text-2xl">
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="decrement()"
+													>-</span
+												>
+												<span class="text-sm" x-text="count"></span>
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="increment()"
+													>+</span
+												>
+											</div>
+											<div class="p-2">
+												<span x-text="price * count"></span> ₽
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="my-2"
+								x-data="{
+						price: 1950,
+						count: 1,
+						increment() {
+							this.count++
+						},
+						decrement() {
+							if(this.count > 1){
+								this.count --
+							}
+						} 
+					}"
+							>
+								<div class="flex items-start">
+									<img
+										src="assets/images/catalog/1.jpeg"
+										class="w-16 h-16"
+										alt=""
+									/>
+									<div class="flex flex-1 flex-col px-2">
+										<a href="/" class="text-xs">
+											Монобукет из 51 розы Кения 40см
+										</a>
+										<div class="flex items-center">
+											<div class="flex flex-1 items-center gap-2 text-2xl">
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="decrement()"
+													>-</span
+												>
+												<span class="text-sm" x-text="count"></span>
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="increment()"
+													>+</span
+												>
+											</div>
+											<div class="p-2">
+												<span x-text="price * count"></span> ₽
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="my-2"
+								x-data="{
+					price: 1950,
+					count: 1,
+					increment() {
+						this.count++
+					},
+					decrement() {
+						if(this.count > 1){
+							this.count --
+						}
+					} 
+				}"
+							>
+								<div class="flex items-start">
+									<img
+										src="assets/images/catalog/1.jpeg"
+										class="w-16 h-16"
+										alt=""
+									/>
+									<div class="flex flex-1 flex-col px-2">
+										<a href="/" class="text-xs">
+											Монобукет из 51 розы Кения 40см
+										</a>
+										<div class="flex items-center">
+											<div class="flex flex-1 items-center gap-2 text-2xl">
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="decrement()"
+													>-</span
+												>
+												<span class="text-sm" x-text="count"></span>
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="increment()"
+													>+</span
+												>
+											</div>
+											<div class="p-2">
+												<span x-text="price * count"></span> ₽
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="my-2"
+								x-data="{
+				price: 1950,
+				count: 1,
+				increment() {
+					this.count++
+				},
+				decrement() {
+					if(this.count > 1){
+						this.count --
+					}
+				} 
+			}"
+							>
+								<div class="flex items-start">
+									<img
+										src="assets/images/catalog/1.jpeg"
+										class="w-16 h-16"
+										alt=""
+									/>
+									<div class="flex flex-1 flex-col px-2">
+										<a href="/" class="text-xs">
+											Монобукет из 51 розы Кения 40см
+										</a>
+										<div class="flex items-center">
+											<div class="flex flex-1 items-center gap-2 text-2xl">
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="decrement()"
+													>-</span
+												>
+												<span class="text-sm" x-text="count"></span>
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="increment()"
+													>+</span
+												>
+											</div>
+											<div class="p-2">
+												<span x-text="price * count"></span> ₽
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="my-2"
+								x-data="{
+			price: 1950,
+			count: 1,
+			increment() {
+				this.count++
+			},
+			decrement() {
+				if(this.count > 1){
+					this.count --
+				}
+			} 
+		}"
+							>
+								<div class="flex items-start">
+									<img
+										src="assets/images/catalog/1.jpeg"
+										class="w-16 h-16"
+										alt=""
+									/>
+									<div class="flex flex-1 flex-col px-2">
+										<a href="/" class="text-xs">
+											Монобукет из 51 розы Кения 40см
+										</a>
+										<div class="flex items-center">
+											<div class="flex flex-1 items-center gap-2 text-2xl">
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="decrement()"
+													>-</span
+												>
+												<span class="text-sm" x-text="count"></span>
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="increment()"
+													>+</span
+												>
+											</div>
+											<div class="p-2">
+												<span x-text="price * count"></span> ₽
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="my-2"
+								x-data="{
+		price: 1950,
+		count: 1,
+		increment() {
+			this.count++
+		},
+		decrement() {
+			if(this.count > 1){
+				this.count --
+			}
+		} 
+	}"
+							>
+								<div class="flex items-start">
+									<img
+										src="assets/images/catalog/1.jpeg"
+										class="w-16 h-16"
+										alt=""
+									/>
+									<div class="flex flex-1 flex-col px-2">
+										<a href="/" class="text-xs">
+											Монобукет из 51 розы Кения 40см
+										</a>
+										<div class="flex items-center">
+											<div class="flex flex-1 items-center gap-2 text-2xl">
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="decrement()"
+													>-</span
+												>
+												<span class="text-sm" x-text="count"></span>
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="increment()"
+													>+</span
+												>
+											</div>
+											<div class="p-2">
+												<span x-text="price * count"></span> ₽
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="my-2"
+								x-data="{
+								price: 1950,
+								count: 1,
+								increment() {
+									this.count++
+								},
+								decrement() {
+									if(this.count > 1){
+										this.count --
+									}
+								} 
+							}"
+							>
+								<div class="flex items-start">
+									<img
+										src="assets/images/catalog/1.jpeg"
+										class="w-16 h-16"
+										alt=""
+									/>
+									<div class="flex flex-1 flex-col px-2">
+										<a href="/" class="text-xs">
+											Монобукет из 51 розы Кения 40см
+										</a>
+										<div class="flex items-center">
+											<div class="flex flex-1 items-center gap-2 text-2xl">
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="decrement()"
+													>-</span
+												>
+												<span class="text-sm" x-text="count"></span>
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="increment()"
+													>+</span
+												>
+											</div>
+											<div class="p-2">
+												<span x-text="price * count"></span> ₽
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="my-2"
+								x-data="{
+							price: 1950,
+							count: 1,
+							increment() {
+								this.count++
+							},
+							decrement() {
+								if(this.count > 1){
+									this.count --
+								}
+							} 
+						}"
+							>
+								<div class="flex items-start">
+									<img
+										src="assets/images/catalog/1.jpeg"
+										class="w-16 h-16"
+										alt=""
+									/>
+									<div class="flex flex-1 flex-col px-2">
+										<a href="/" class="text-xs">
+											Монобукет из 51 розы Кения 40см
+										</a>
+										<div class="flex items-center">
+											<div class="flex flex-1 items-center gap-2 text-2xl">
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="decrement()"
+													>-</span
+												>
+												<span class="text-sm" x-text="count"></span>
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="increment()"
+													>+</span
+												>
+											</div>
+											<div class="p-2">
+												<span x-text="price * count"></span> ₽
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="my-2"
+								x-data="{
+						price: 1950,
+						count: 1,
+						increment() {
+							this.count++
+						},
+						decrement() {
+							if(this.count > 1){
+								this.count --
+							}
+						} 
+					}"
+							>
+								<div class="flex items-start">
+									<img
+										src="assets/images/catalog/1.jpeg"
+										class="w-16 h-16"
+										alt=""
+									/>
+									<div class="flex flex-1 flex-col px-2">
+										<a href="/" class="text-xs">
+											Монобукет из 51 розы Кения 40см
+										</a>
+										<div class="flex items-center">
+											<div class="flex flex-1 items-center gap-2 text-2xl">
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="decrement()"
+													>-</span
+												>
+												<span class="text-sm" x-text="count"></span>
+												<span
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													@click.prevent="increment()"
+													>+</span
+												>
+											</div>
+											<div class="p-2">
+												<span x-text="price * count"></span> ₽
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<header>
@@ -85,7 +600,10 @@
 						</div>
 						<div class="flex gap-4 items-center flex-1">
 							<img src="assets/icons/search.svg" class="ml-auto" alt="" />
-							<div class="relative" x-on:click="cartIsVisible = true">
+							<div
+								class="relative cursor-pointer"
+								x-on:click="cartIsVisible = true; scrollY = false"
+							>
 								<span
 									class="bg-lavender rounded-full h-4 w-4 flex items-center justify-center text-white font-bold absolute text-[8px] -top-3 right-0"
 								>
@@ -175,12 +693,16 @@
 			</section>
 
 			<section id="poster" class="pt-16">
-				<div class="container flex flex-col items-center uppercase font-thin">
+				<div
+					class="container flex flex-col items-center uppercase font-thin lg:text-2xl"
+				>
 					<span
 						>Скидка
-						<span class="font-black text-white bg-lavender p-1 px-2 rounded-2xl"
-							>10%</span
+						<span
+							class="font-black text-white bg-lavender p-1 px-2 rounded-2xl"
 						>
+							10%
+						</span>
 					</span>
 					<span
 						>при первом заказе от <span class="font-black">2000₽</span></span

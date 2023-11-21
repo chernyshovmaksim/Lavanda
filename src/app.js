@@ -1,26 +1,16 @@
+import { Carousel } from "@fancyapps/ui/dist/carousel/carousel.esm";
+// import { Thumbs } from "@fancyapps/ui/dist/carousel/carousel.thumbs.esm.js";
+import "@fancyapps/ui/dist/carousel/carousel.css";
+// import "@fancyapps/ui/dist/carousel/carousel.thumbs.css";
+
 import MmenuLight from "mmenu-light";
+import "mmenu-light/dist/mmenu-light.css";
 
 import Alpine from "alpinejs";
 
 window.Alpine = Alpine;
 
 Alpine.start();
-
-// core version + navigation, pagination modules:
-import Swiper from "swiper";
-import { Pagination } from "swiper/modules";
-
-const swiper = new Swiper(".swiper", {
-	modules: [Pagination],
-	// direction: "vertical",
-	loop: true,
-	autoplay: true,
-
-	// If we need pagination
-	pagination: {
-		el: ".swiper-pagination",
-	},
-});
 
 const menu = new MmenuLight(document.querySelector("#menu"));
 const navigator = menu.navigation({
@@ -39,3 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			drawer.open();
 		});
 });
+
+// const container = document.getElementById("myCarousel");
+// const options = {
+// 	Thumbs: {
+// 		type: "modern",
+// 	},
+// };
+
+// new Carousel(container, options, { Thumbs });

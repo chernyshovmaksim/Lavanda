@@ -29,6 +29,11 @@
     chalk "^2.4.2"
     js-tokens "^4.0.0"
 
+"@fancyapps/ui@^5.0.28":
+  version "5.0.28"
+  resolved "https://registry.yarnpkg.com/@fancyapps/ui/-/ui-5.0.28.tgz#f0ef09a05e0e0be8815e839949a535850bd0a91b"
+  integrity sha512-CJ0Uw/KkSHH/bE+Uz4BaWgxQgzY1Dwl6dlYZtW1SGBrQBrIRuV4G3VEG1uVw27JAB9xgCbUAJddk3JQ/kvPACA==
+
 "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz#7e02e6eb5df901aaedb08514203b096614024098"
@@ -2346,11 +2351,6 @@ svgo@^2.4.0:
     csso "^4.2.0"
     picocolors "^1.0.0"
     stable "^0.1.8"
-
-swiper@^11.0.4:
-  version "11.0.4"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.0.4.tgz#58253ef9a7a4ef5e37d5a0613783f5a3debc48da"
-  integrity sha512-qtUxILrD4aD++rpKzGrkz3IAWL92f9uTrDwjb6HaNLmPvJhZCE/83DL+9w4kIgDDJeF6QKalV47rMBN77UOVYQ==
 
 tailwindcss@^3.3.5:
   version "3.3.5"

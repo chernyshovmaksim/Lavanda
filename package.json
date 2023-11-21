@@ -12,8 +12,8 @@
     "tailwindcss": "^3.3.5"
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.28",
     "alpinejs": "^3.13.2",
-    "mmenu-light": "^3.2.2",
-    "swiper": "^11.0.4"
+    "mmenu-light": "^3.2.2"
   }
 }
