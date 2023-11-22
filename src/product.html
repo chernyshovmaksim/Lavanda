@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
@@ -8,9 +8,9 @@
 	</head>
 	<body
 		x-data="{
-		cartIsVisible: false,
-		scrollY: true	
-	}"
+            cartIsVisible: false,
+            scrollY: true
+        }"
 		class="antialiased"
 		x-bind:class=" scrollY ? '' : 'overflow-y-hidden'"
 	>
@@ -157,68 +157,10 @@
 				</section>
 			</header>
 
-			<section>
-				<div class="container">
-					<a href="/">
-						<img
-							src="assets/images/poster-1.png?width=1008&as=avif"
-							class="w-full"
-							alt=""
-						/>
-					</a>
-				</div>
-			</section>
-
 			<section id="title" class="py-8 pt-16">
 				<div class="container flex items-center">
 					<span class="h-[1px] w-full bg-lavender flex-1 mr-3"></span>
 					<h3 class="uppercase font-serif text-base">Акции</h3>
-					<span class="h-[1px] w-full bg-lavender flex-1 ml-3"></span>
-				</div>
-			</section>
-
-			<section id="catalog">
-				<div
-					class="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 gap-y-4"
-				>
-					<div class="flex flex-col">
-						<a href="/" class="w-full h-36 md:h-52">
-							<img
-								class="w-full h-full object-cover"
-								src="assets/images/catalog/1.jpeg"
-								alt=""
-							/>
-						</a>
-						<h2 class="text-xs mt-2">Монобукет из 51 розы Кения 40см</h2>
-						<span class="font-bold mt-2">1950 ₽</span>
-						<span class="text-[10px] text-green-700">В наличии</span>
-						<div class="text-center bg-slate-900 text-white">В корзину</div>
-					</div>
-				</div>
-			</section>
-
-			<section id="poster" class="pt-16">
-				<div
-					class="container flex flex-col items-center uppercase font-thin lg:text-2xl"
-				>
-					<span
-						>Скидка
-						<span
-							class="font-black text-white bg-lavender p-1 px-2 rounded-2xl"
-						>
-							10%
-						</span>
-					</span>
-					<span
-						>при первом заказе от <span class="font-black">2000₽</span></span
-					>
-				</div>
-			</section>
-
-			<section id="title" class="py-8 pt-16">
-				<div class="container flex items-center">
-					<span class="h-[1px] w-full bg-lavender flex-1 mr-3"></span>
-					<h3 class="uppercase font-serif text-base">Новинки</h3>
 					<span class="h-[1px] w-full bg-lavender flex-1 ml-3"></span>
 				</div>
 			</section>
@@ -276,6 +218,24 @@
 						<h2 class="text-xs">Корзина из 101 розы "MIX" (Кения)</h2>
 						<span class="font-bold mt-auto text-green-700">2550 ₽</span>
 					</div>
+				</div>
+			</section>
+
+			<section id="poster" class="pt-16">
+				<div
+					class="container flex flex-col items-center uppercase font-thin lg:text-2xl"
+				>
+					<span
+						>Скидка
+						<span
+							class="font-black text-white bg-lavender p-1 px-2 rounded-2xl"
+						>
+							10%
+						</span>
+					</span>
+					<span
+						>при первом заказе от <span class="font-black">2000₽</span></span
+					>
 				</div>
 			</section>
 

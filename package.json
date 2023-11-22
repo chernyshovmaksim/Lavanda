@@ -8,6 +8,8 @@
     "@parcel/reporter-bundle-analyzer": "^2.10.3",
     "parcel": "^2.10.2",
     "postcss": "^8.4.31",
+    "prettier": "^3.1.0",
+    "prettier-plugin-tailwindcss": "^0.5.7",
     "sharp": "^0.31.1",
     "tailwindcss": "^3.3.5"
   },
