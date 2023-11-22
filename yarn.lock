@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@alloc/quick-lru/-/quick-lru-5.2.0.tgz#7bf68b20c0a350f936915fcae06f58e32007ce30"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
+"@alpinejs/persist@^3.13.3":
+  version "3.13.3"
+  resolved "https://registry.yarnpkg.com/@alpinejs/persist/-/persist-3.13.3.tgz#886d1d081dbd9df2c0b7b9c3806dbfd0b7564ee0"
+  integrity sha512-gXTH8ynVFmmQJf50/bukRvHRnp5fIDYBBfo1ZJMLSzSC6OefM/CAablwlDCV6gx+8ELeis+v5yFvX0MjBEQ7Uw==
+
 "@babel/code-frame@^7.0.0":
   version "7.22.13"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.22.13.tgz#e3c1c099402598483b7a8c46a721d1038803755e"
