@@ -82,15 +82,15 @@
 									<div class="flex flex-1 flex-col px-2">
 										<a href="/" class="text-xs"> Монобукет из 51 розы Кения 40см </a>
 										<div class="flex items-center">
-											<div class="flex flex-1 items-center gap-2 text-2xl">
+											<div class="flex flex-1 items-center gap-2 text-2xl select-none">
 												<span
-													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500 cursor-pointer"
 													@click.prevent="decrement()"
 													>-</span
 												>
 												<span class="text-sm" x-text="count"></span>
 												<span
-													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500"
+													class="flex w-8 h-8 items-center justify-center rounded border border-slate-500 cursor-pointer"
 													@click.prevent="increment()"
 													>+</span
 												>
@@ -110,8 +110,58 @@
 			<!-- Попап покупки в один клик -->
 			<div
 				id="buy-one-click"
-				class="fixed -left-full top-0 w-full h-screen bg-black z-50 opacity-50"
-			></div>
+				class="fixed top-0 w-full h-screen bg-[rgba(0,0,0,0.5)] z-50 transition flex items-center justify-center"
+				x-bind:class="$store.settings.showPopupBuyOneClick ? 'left-0' : '-left-full'"
+			>
+				<div class="w-11/12 md:w-2/4 lg:w-2/5 bg-white p-2 rounded shadow relative">
+					<div
+						id="close-btn"
+						class="-top-12 -right-0 absolute w-8 h-8 p-1 rounded-full bg-slate-900"
+					>
+						<img
+							src="assets/icons/x.svg"
+							class="w-full h-full filter invert"
+							alt=""
+							x-on:click="$store.settings.toggleShowPopupBuyOneClick(); scrollY = true;"
+						/>
+					</div>
+
+					<section id="title" class="py-4">
+						<div class="container flex items-center">
+							<span class="h-[1px] w-full bg-lavender flex-1 mr-3"></span>
+							<h3 class="uppercase font-serif text-xs">Укажите номер телефона</h3>
+							<span class="h-[1px] w-full bg-lavender flex-1 ml-3"></span>
+						</div>
+					</section>
+					<form>
+						<div>
+							<input
+								type="tel"
+								name="clientPhone"
+								x-model="clientPhone"
+								id="clientPhone"
+								class="w-full border border-lavender rounded text-xs p-1 py-2 focus:outline-2 focus:outline-lavender"
+								x-mask="+7 (999) 999-99-99"
+								placeholder="+7 (900) 000-00-00"
+								required
+							/>
+						</div>
+						<div class="my-2 flex justify-center">
+							<button
+								type="submit"
+								class="bg-slate-900 py-1 px-4 w-fit rounded text-white text-xs"
+								x-on:click.prevent="
+									$store.client.setPhone(clientPhone); 
+									sendOrder(); 
+									$store.settings.toggleShowPopupBuyOneClick();
+								"
+							>
+								Оформить заказ
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
 
 			<!-- Шапка -->
 			<header>
@@ -186,7 +236,7 @@
 				>
 					<div
 						class="flex flex-col"
-						x-ref="product"
+						x-ref="product1"
 						data-id="1"
 						data-price="1950"
 						data-count="1"
@@ -203,7 +253,7 @@
 						<span class="text-[10px] text-green-700">В наличии</span>
 						<div
 							class="text-center bg-slate-900 text-white uppercase text-[8px] py-2 rounded cursor-pointer"
-							x-on:click="buyInOneClick()"
+							@click="buyInOneClick($refs.product1); scrollY = false;"
 						>
 							Купить в один клик
 						</div>
